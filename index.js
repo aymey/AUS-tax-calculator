@@ -5,6 +5,7 @@ const taxtable21 = function (gross, deduction) {
 
   if (taxDed > 0 && taxDed < 18201) {
     console.log("Bracket: $0 – $18,200");
+    console.log(gross + " - " + deduction + " = " + taxDed);
     console.log("$0");
   } else if (taxDed > 18201 && taxDed < 45000) {
     console.log("Bracket: $18,201 – $45,000");
@@ -63,5 +64,3 @@ const taxtable19 = function (gross, deduction) {
 
 // taxtable21(0, 0);
 // taxtable19(0, 0);
-
-return;

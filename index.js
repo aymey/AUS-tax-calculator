@@ -63,5 +63,3 @@ const taxtable19 = function (gross, deduction) {
 
 // taxtable21(0, 0);
 // taxtable19(0, 0);
-
-return;

@@ -1,4 +1,9 @@
+const readline = require("readline");
 let result = 0;
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
 const taxtable21 = function (gross, deduction) {
   const taxDed = gross - deduction;
@@ -62,5 +67,41 @@ const taxtable19 = function (gross, deduction) {
   }
 };
 
-// taxtable21(0, 0);
-// taxtable19(0, 0);
+rl.question("2021 or 2019 table? (21 / 19 / help / repo) ", (answer) => {
+  if ((answer = "21")) {
+    table21();
+  } else if ((answer = "19")) {
+    table19();
+  } else if ((answer = "help")) {
+    rl.close();
+    console.log(
+      "type 21 for the 2020 - 2021 tax table (AUS), type 19 for the 2019 tax table (AUS) or type repo for a link to the gihub repository"
+    );
+  } else if ((answer = "repo")) {
+    rl.close();
+    console.log(
+      "github repository: https://github.com/FabianPaci/AUS-tax-calculator"
+    );
+  } else {
+    rl.close();
+    console.log("unknown command please try help for more information");
+  }
+});
+
+const table21 = function () {
+  rl.on("line", (gross) => {
+    rl.on("line", (deduction) => {
+      console.log(taxtable21(gross, deduction));
+      rl.close();
+    });
+  });
+};
+
+const table19 = function () {
+  rl.on("line", (gross) => {
+    rl.on("line", (deduction) => {
+      console.log(taxtable19(gross, deduction));
+      rl.close();
+    });
+  });
+};
